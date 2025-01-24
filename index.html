@@ -28,7 +28,9 @@
     </header>
 
     <div id="sidePanel" class="side-panel">
-        <button id="closePanel"><img id="closeimg" src="assets/icone-x-rouge-removebg-preview.png"></button>
+        <button id="closePanel">
+            <img id="closeimg" src="assets/icone-x-rouge-removebg-preview.svg" alt="close panel">
+        </button>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Shop</a></li>
@@ -38,125 +40,72 @@
 
     <main>
         <hero>
-            <div class="audio-player">
-                <audio id="audioPlayer" autoplay>
-                    <source src="assets/KanyeWest-Runaway.mp3" type="audio/mpeg">
-                </audio>
-                <div class="controls">
-                    <button id="muteButton">
-                        <img src="assets/istockphoto-1305893663-612x612-removebg-preview.png">
-                    </button>
-                </div>
-            </div>
-            <img class="lebron" src="assets/lebroneditimage2.png">
+            <img class="lebron" src="assets/lebroneditimage2.jpg" alt="Lebron image">
         </hero>
 
         <section class="front-catalog">
             <div class="item">
-                <img class="shoes" src="assets/nike-lebron-20-all-star.png">
+                <img class="shoes" src="assets/nike-lebron-20-all-star.jpg" alt="shoe 1">
                 <div class="item-desc-organizer">
                     <p class="item-name">Lebron 20 / All Star</p>
-                    <img class="arrow" id="alls" src="assets/pngtree-right-pointing-arrow-icon-design-png-image_4457073-removebg-preview.png">
+                    <img class="arrow" id="alls" src="assets/pngtree-right-pointing-arrow-icon-design-png-image_4457073-removebg-preview.jpg" alt="arrow">
                 </div>
             </div>
-
             <div class="item">
-                <img class="shoes" src="assets/lebron=promise.png">
+                <img class="shoes" src="assets/lebron=promise.jpg" alt="shoe 2">
                 <div class="item-desc-organizer">
                     <p class="item-name">Lebron 22 / Promise</p>
-                    <img class="arrow" src="assets/pngtree-right-pointing-arrow-icon-design-png-image_4457073-removebg-preview.png">
+                    <img class="arrow" src="assets/pngtree-right-pointing-arrow-icon-design-png-image_4457073-removebg-preview.jpg" alt="arrow">
                 </div>
             </div>
-
             <div class="item">
-                <img class="shoes" id="dust" src="assets/lebrondust.png">
+                <img class="shoes" id="dust" src="assets/lebrondust.jpg" alt="shoe 3">
                 <div class="item-desc-organizer">
                     <p class="item-name">Lebron 21 / Dust Gold</p>
-                    <img class="arrow" src="assets/pngtree-right-pointing-arrow-icon-design-png-image_4457073-removebg-preview.png">
+                    <img class="arrow" src="assets/pngtree-right-pointing-arrow-icon-design-png-image_4457073-removebg-preview.jpg" alt="arrow">
                 </div>
             </div>
         </section>
+        
     </main>
 
     <script>
-        window.onload = () => {
-            document.querySelector('.header').classList.add('animate-header');
+         document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('.header');
+        header.classList.add('animate-header');
+
+        const observeItems = (selector, animationClass) => {
+            const elements = document.querySelectorAll(selector);
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(animationClass);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(el => observer.observe(el));
         };
+        observeItems('.item', 'animate-item');
+        observeItems('.lebron', 'animate-lebron');
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const items = document.querySelectorAll(".item");
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("animate-item");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            items.forEach(item => observer.observe(item));
+        const menuButton = document.getElementById('menuButton');
+        const sidePanel = document.getElementById('sidePanel');
+        const closePanel = document.getElementById('closePanel');
+        menuButton.addEventListener('click', e => {
+            sidePanel.style.transform = 'translateX(0)';
+            e.preventDefault(); // Prevent scrolling to top
+            e.stopPropagation(); // Stop event propagation
         });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const lebronImage = document.querySelector(".lebron");
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("animate-lebron");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            observer.observe(lebronImage);
+        closePanel.addEventListener('click', () => {
+            sidePanel.style.transform = 'translateX(-100%)';
         });
-        const iframe = document.getElementById('audioIframe');
-        const muteButton = document.getElementById('muteButton');
-
-        
-        let audioVolume = 0.5;
-
-       
-        muteButton.addEventListener('click', () => {
-            if (iframe.src.includes('mute=1')) {
-                iframe.src = iframe.src.replace('mute=1', 'mute=0');
-                muteButton.classList.remove('active');
-            } else {
-                iframe.src = iframe.src.replace('mute=0', 'mute=1');
-                muteButton.classList.add('active');
+        document.addEventListener('click', e => {
+            if (!sidePanel.contains(e.target) && e.target !== menuButton) {
+                sidePanel.style.transform = 'translateX(-100%)';
             }
         });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const audioPlayer = document.getElementById('audioPlayer');
-            const muteButton = document.getElementById('muteButton');
-            muteButton.addEventListener('click', () => {
-                audioPlayer.muted = !audioPlayer.muted;
-                muteButton.classList.toggle('active')});
-        });
-        
-        document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('menuButton');
-    const sidePanel = document.getElementById('sidePanel');
-    const closePanel = document.getElementById('closePanel');
-
-   
-    menuButton.addEventListener('click', (e) => {
-        sidePanel.style.transform = 'translateX(0)';
-        e.stopPropagation(); 
     });
-
-    
-    const audioPlayer = document.getElementById('audioPlayer');
-    const muteButton = document.getElementById('muteButton');
-
-    muteButton.addEventListener('click', () => {
-        audioPlayer.muted = !audioPlayer.muted;
-        muteButton.classList.toggle('active');
-    });
-});
-
-
     </script>
 </body>
 </html>

@@ -47,7 +47,8 @@ nav {
 #menu, #cart {
     height: 80%;
 }
-#menu{
+
+#menu {
     width: 130%;
 }
 
@@ -96,6 +97,7 @@ hero {
     opacity: 0;
     transform: translateY(70px);
     transition: transform 1.5s ease-out, opacity 1s ease-out;
+    gap: 30px;
 }
 
 .item.animate-item {
@@ -127,40 +129,20 @@ hero {
     width: 7%;
 }
 
+.shoes {
+    width: 90%;
+}
+
 .arrow {
     width: 10%;
 }
 
-.audio-player {
-    background: rgba(0, 0, 0, 0.479);
-    padding: 7px 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    bottom: 10px;
-    left: 15px;
-    width: 4%;
+.item:hover img {
+    transform: scale(1.1);
 }
 
-#muteButton {
-    background-color: #444;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 45px;
-    height: 45px;
-    padding: 5px;
-}
-
-#muteButton img {
-    width: 100%;
-}
-
-iframe {
-    display: none;
+.item img {
+    transition: 0.3s;
 }
 
 .side-panel {
@@ -178,10 +160,12 @@ iframe {
     padding-left: 15px;
     align-items: start;
     border-right: 3px solid rgb(95, 13, 13);
+    border-radius: 5px; /* Added rounded corners */
 }
 
 .side-panel ul {
     list-style: none;
+    margin-top: 50px;
 }
 
 .side-panel ul li {
@@ -193,6 +177,11 @@ iframe {
     color: red;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.3s;
+}
+
+.side-panel ul li a:hover {
+    color: white; /* Hover effect for links */
 }
 
 .side-panel #closePanel {
@@ -204,9 +193,15 @@ iframe {
     margin-bottom: 20px;
     margin-top: 150px;
 }
-#closePanel{
-width: 12%;
+
+#closePanel {
+    width: 12%;
 }
-#closeimg{
+
+#closeimg {
     width: 100%;
+}
+
+.side-panel ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
 }

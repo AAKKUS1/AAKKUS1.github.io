@@ -124,6 +124,9 @@ hero {
 .item:hover .item-desc-organizer {
     border-color: white;
 }
+.item:hover .shoes{
+    scale: (1.1);
+}
 
 .item-desc-organizer img {
     width: 7%;
@@ -160,7 +163,7 @@ hero {
     padding-left: 15px;
     align-items: start;
     border-right: 3px solid rgb(95, 13, 13);
-    border-radius: 5px; /* Added rounded corners */
+    border-radius: 5px; 
 }
 
 .side-panel ul {
@@ -181,7 +184,7 @@ hero {
 }
 
 .side-panel ul li a:hover {
-    color: white; /* Hover effect for links */
+    color: white; 
 }
 
 .side-panel #closePanel {
@@ -203,5 +206,5 @@ hero {
 }
 
 .side-panel ul li a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline; 
 }

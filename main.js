@@ -18,17 +18,4 @@ document.addEventListener('click', e => {
         sidePanel.style.transform = 'translateX(-100%)';
     }
 });
-
-
-const ocat = document.getElementById('ocat');
-const ote = document.getElementById('otherCatalogs');
-
-ocat.addEventListener('click', () => {
-
-    if (ote.style.display === 'block') {
-        ote.style.display = 'none';  
-
-    } else {
-        ote.style.display = 'block';  
-    }
-});
+;

@@ -23,7 +23,7 @@ header {
 }
 h1 {
   font-family: Commissioner;
-  font-size: 120px;
+  font-size: 25px;
   letter-spacing: 10px;
   color: white;
   mix-blend-mode: difference;
@@ -74,7 +74,7 @@ main {
   width: 100%;
   height: 70%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   justify-items: center;
 }
 .album {
@@ -103,4 +103,17 @@ main {
 .album-name a{
 	color: white;
 	text-decoration: none;
+}
+
+
+@media screen and (min-width: 378px){
+	.album-grid{
+		grid-template-columns: repeat(2, 1fr);
+	}
+	h1{
+		font-size: 120px;
+	}
+	.album-cover{
+		height: 75%;
+	}
 }

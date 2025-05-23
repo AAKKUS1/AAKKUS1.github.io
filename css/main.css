@@ -114,6 +114,10 @@ main {
 		font-size: 120px;
 	}
 	.album-cover{
-		height: 75%;
+		height: 50%;
+		width: 40%;
+	}
+	.album{
+		width: 100%;
 	}
 }

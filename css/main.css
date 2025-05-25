@@ -1,49 +1,99 @@
+/* ==========================================================================
+   IMPORTS
+   ========================================================================== */
+
 @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
 
 body {
   height: 100vh;
-  background-color: black;
-  font-family: roboto;
+  background-color: #000;
+  font-family: "Roboto", sans-serif;
 }
+
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+
 header {
   height: 100%;
   width: 100%;
   display: flex;
 }
+
 .hero {
   position: relative;
   z-index: 1;
-  background: center / cover url(../assets/sherifflazone-header.jpg);
+  background: center / cover url("../assets/sherifflazone-header.jpg");
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding-bottom: 125px;
   width: 100%;
+  -webkit-box-shadow: inset 0px -15px 19px -2px #000;
+  box-shadow: inset 0px -15px 19px -2px #000;
 }
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
 h1 {
-  font-family: Commissioner;
+  font-family: "Commissioner", sans-serif;
   font-size: 25px;
   letter-spacing: 10px;
-  color: white;
+  color: #fff;
   mix-blend-mode: difference;
   z-index: 2;
 }
 
 h1::selection {
-  color: black;
-  background-color: white;
+  color: #000;
+  background-color: #fff;
 }
+
+.desc-quote {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 800;
+  font-style: oblique;
+  letter-spacing: 2px;
+  padding-inline: 7px;
+  text-align: center;
+}
+
+.desc-main {
+  color: #fff;
+  font-size: 15px;
+  font-family: "Commissioner", sans-serif;
+  line-height: 22px;
+}
+
+/* ==========================================================================
+   INTERACTIVE ELEMENTS
+   ========================================================================== */
+
 .resender {
-  color: white;
-  border-bottom: solid 2px white;
-  transition-duration: 0.4s;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  transition: padding-inline 0.4s ease;
   cursor: pointer;
   padding-inline: 5px;
 }
+
 .resender:hover {
   padding-inline: 15px;
 }
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
 
 .fade-in {
   opacity: 0;
@@ -57,19 +107,97 @@ h1::selection {
     transform: translateY(0);
   }
 }
+
 .fade-in-b {
   opacity: 0;
   animation: fadeInB 1s ease-out forwards;
 }
+
 @keyframes fadeInB {
   to {
     opacity: 0.8;
     transform: translateY(0);
   }
 }
+
+/* ==========================================================================
+   MAIN CONTENT LAYOUT
+   ========================================================================== */
+
 main {
   height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
+#desc-artiste {
+  height: 100%;
+  width: 100%;
+}
+
+/* ==========================================================================
+   QUOTE SECTION
+   ========================================================================== */
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 32px;
+}
+
+/* ==========================================================================
+   DESCRIPTION SECTION
+   ========================================================================== */
+
+.big-desc {
+  margin-top: 70px;
+  height: 70%;
+  background: center / cover url("../assets/sher1.png") no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 13px -7px #000, inset 0px 0px 50px 21px #000;
+  box-shadow: 0px 10px 13px -7px #000, inset 0px 0px 50px 21px #000;
+  background-size: 50%;
+  background-position: left;
+  backdrop-filter: blur(10px);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 30px;
+  background-color: rgba(0, 0, 0, 0.562);
+  -webkit-box-shadow: 0px 10px 13px -7px #000, inset 0px 0px 50px 21px #000;
+  box-shadow: 0px 10px 13px -7px #000, inset 0px 0px 50px 21px #000;
+}
+
+.text-first {
+  padding: 10px;
+  -webkit-box-shadow: 0px 10px 13px -7px #000, 0px 0px 50px 21px #000;
+  box-shadow: 0px 10px 13px -7px #000, 0px 0px 50px 21px #000;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 90%;
+}
+
+.text-first span {
+  padding-inline: 10px;
+}
+
+/* ==========================================================================
+   ALBUM GRID SECTION (COMMENTED OUT IN HTML)
+   ========================================================================== */
+
 .album-grid {
   width: 100%;
   height: 70%;
@@ -77,6 +205,7 @@ main {
   grid-template-columns: 1fr;
   justify-items: center;
 }
+
 .album {
   width: 70%;
   display: flex;
@@ -84,8 +213,9 @@ main {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: white;
+  color: #fff;
 }
+
 .album-cover {
   width: 50%;
   height: 40%;
@@ -93,31 +223,133 @@ main {
   border-radius: 8px;
   cursor: pointer;
 }
+
 #dmvp {
-  background: center / cover url(../assets/dmvp.jpg);
-  transition-duration: 0.3s;
+  background: center / cover url("../assets/dmvp.jpg");
+  transition: transform 0.3s ease;
 }
+
 #extended {
-  background: center / cover url(../assets/dmvp-extended.png);
-}
-.album-name a{
-	color: white;
-	text-decoration: none;
+  background: center / cover url("../assets/dmvp-extended.png");
 }
 
+.album-name a {
+  color: #fff;
+  text-decoration: none;
+}
 
-@media screen and (min-width: 378px){
-	.album-grid{
-		grid-template-columns: repeat(2, 1fr);
-	}
-	h1{
-		font-size: 120px;
-	}
-	.album-cover{
-		height: 50%;
-		width: 40%;
-	}
-	.album{
-		width: 100%;
-	}
+/* ==========================================================================
+   MEDIA QUERIES FOR DESKTOP
+   ========================================================================== */
+
+@media screen and (min-width: 768px) {
+  /* Typography adjustments */
+  h1 {
+    font-size: 120px;
+  }
+
+  .desc-quote {
+    font-size: 20px;
+  }
+
+  .desc-main {
+    font-size: 15px;
+  }
+
+  /* Album grid adjustments */
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .album {
+    width: 100%;
+  }
+
+  .album-cover {
+    height: 50%;
+    width: 40%;
+  }
+
+  .overlay {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES FOR MOBILE
+   ========================================================================== */
+
+@media screen and (max-width: 767px) {
+  /* Base styles adjustments for mobile */
+  body {
+    height: auto;
+  }
+
+  /* Header adjustments */
+  .hero {
+    padding-bottom: 60px;
+  }
+
+  /* Typography adjustments */
+  h1 {
+    font-size: 30px;
+    letter-spacing: 5px;
+  }
+
+  .desc-quote {
+    font-size: 14px;
+  }
+
+  .desc-main {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* Main content adjustments */
+  main {
+    padding-bottom: 30px;
+  }
+
+  /* Description section adjustments */
+  .big-desc {
+    margin-top: 30px;
+    height: auto;
+    background-size: 100%;
+    background-position: top;
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .overlay {
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .text-first {
+    width: 100%;
+    gap: 15px;
+  }
+
+  /* Album grid adjustments */
+  .album-grid {
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  .album {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .album-cover {
+    width: 100%;
+    height: 200px;
+  }
+
+  /* Quote section adjustments */
+  .quote {
+    margin-top: 20px;
+  }
 }

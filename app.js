@@ -2,11 +2,13 @@ const title = document.getElementById("title");
 const hero = document.getElementById("hero");
 
 window.addEventListener("DOMContentLoaded", () => {
-  title.classList.add("fade-in");
-  hero.classList.add("fade-in-b");
+  if (title) title.classList.add("fade-in");
+  if (hero) hero.classList.add("fade-in-b");
 });
 
 function scrollToSection() {
-  const section = document.getElementById("desc-artiste");
-  section.scrollIntoView({ behavior: "smooth" });
+  const section = document.querySelector(".image-container"); // Updated selector
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
 }

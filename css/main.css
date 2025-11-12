@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif+Caption:ital@0;1&display=swap");
+
+body {
+  height: 100vh;
+  background: center / cover url(/assets/backgroundTexture.jpg);
+  background-size: 263px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 26px;
+  font-size: 17px;
+  font-family: "PT Serif Caption", serif;
+  font-weight: 500;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+header {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.navDirection {
+  border: dashed 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 46px;
+  background-color: rgba(253, 226, 255, 0.637);
+}
+.navDirection:nth-child(2) {
+  border-inline: none;
+}
+.navDirection:nth-child(4) {
+  border-left: none;
+}
+.navDirection:hover a {
+  text-decoration: underline;
+
+  text-shadow: -1px -1px 0 #b6d0ec;
+  font-weight: 500;
+  transition-duration: 0.3s;
+}
+.presentationWindowBackground {
+  padding: 6px;
+  border-radius: 8px;
+  background: center / cover url(/assets/brutalistTexture.jpg);
+}
+.presentationWindow {
+  border-radius: 12px;
+  padding: 12px;
+  background-color: rgb(250, 230, 252);
+}
+
+.player {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px 40px;
+  text-align: center;
+  width: 300px;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.2);
+}
+
+#volume {
+  width: 80px;
+}

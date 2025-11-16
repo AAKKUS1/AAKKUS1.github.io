@@ -15,6 +15,10 @@ const songs = [
     src: "songs/Glokk40Spaz-IChooseViolence.mp3",
     name: "Glokk40Spaz - I Choose Violence",
   },
+  {
+    src: "songs/LUCKI-13.mp3",
+    name: "LUCKI - 13",
+  },
 ];
 
 let currentSongIndex = 0;

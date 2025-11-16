@@ -47,7 +47,7 @@ nav {
   transition-duration: 0.2s;
 }
 
-.presentationWindow {
+.box {
   border-radius: 12px;
   padding: 12px;
   background-color: rgb(250, 230, 252);
@@ -60,7 +60,7 @@ nav {
   align-items: center;
 }
 
-.presentationWindow img{
+.box img{
   width: 25%;
   border-radius: 8px;
 }
@@ -106,4 +106,33 @@ button:hover {
 #volume {
   width: 80px;
   accent-color: pink;
+}
+.websiteInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: start;
+  grid-area: one;
+}
+main{
+  width: 40%;
+  margin-top: 20px;
+  display: grid;
+  grid-template-areas:
+    "one one two two"
+    "one one two two"
+    "three three four four"
+    "three three four four";
+  gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 100px);
+}
+.easteregg{
+  position: absolute;
+  z-index: 3;
+  top: 0px;
+  left: 0px;
+
+  width: 10px;
+  height: 10px;
 }

@@ -3,78 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <title>goofyAHwebsite</title>
+    <title>Home</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="navDirection">
-          <a href="/index.html">Home</a>
-        </div>
-        <div class="navDirection">
-          <a href="/profile.html">Profile</a>
-        </div>
-        <div class="navDirection">
-          <a href="/works.html">Works</a>
-        </div>
-        <div class="navDirection">
-          <a href="/contact.html">Contact</a>
-        </div>
-      </nav>
-        <div class="presentationWindow box">
-          <p>
-            Welcome to my website, here you’ll find bits of what i do and what i
-            enjoy: art, projects. i’m not putting everything out there, but
-            enough to let you see who i am. take your time, look around. this
-            place is always a work in progress ‘cause i’m never done creating,
-            changing, or tweaking things. ( I got inspired by neocities websites
-            for the look)
-          </p>
-          <img src="/assets/mahito.png" alt="meme">
-          
-        </div>
-    </header>
+    <nav>
+      <ul>
+        <li class="important-2 currentPage">
+          <a href="index.html">Accueil</a>
+        </li>
+        <li class="important-2">
+          <i class="ri-arrow-right-line"></i><a href="#">À propos</a>
+        </li>
+        <li class="important-2">
+          <i class="ri-arrow-right-line"></i><a href="#">Projets</a>
+        </li>
+        <li class="important-2">
+          <i class="ri-arrow-right-line"></i
+          ><a href="/pages/contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
     <main>
-      <div class="websiteInfo box">
-        <h3>repository name:</h3>
-        <p>first created:</p>
-        <p>last updated:</p>
-        <p>link to the repository</p>
-      </div>
+      <p class="important-2">Adem AKKUS</p>
+      <p class="important-2">
+        étudiant en dev-web à
+        <a class="edenText" href="https://www.edenschool.fr/">Edenschool</a>
+      </p>
     </main>
-    
 
-
-
-
-
-
-
-    <div class="player">
-      <p id="song-title">Loading...</p>
-      <audio id="audio"></audio>
-
-      <div class="controls">
-        <div>
-          <button id="previous"><i class="ri-skip-left-fill"></i></button>
-          <button id="play-pause"><i class="ri-arrow-right-s-fill"></i></button>
-          <button id="next"><i class="ri-skip-right-line"></i></button>
-        </div>
-        <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
-      </div>
-    </div>
-
-
-    <a href="/pages/snake.html" class="easteregg"></a>
-    <script src="script.js"></script>
-        <script src="githubApi.js"></script>
-
+    <script src="/script.js"></script>
   </body>
 </html>

@@ -1,138 +1,218 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Serif+Caption:ital@0;1&display=swap");
+/* =========================================================
+   GOOGLE FONTS
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Wittgenstein:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* =========================================================
+   CSS VARIABLES (DESIGN TOKENS)
+   ========================================================= */
+:root {
+  /* Colors */
+  --color-body: #ecf3f9;
+  --color-border: #cacaca;
+
+  --color-text-main: #000000;
+  --color-text-alternative-1: #d6b1ff;
+  --color-text-alternative-2: #ff7e7e;
+  --color-text-alternative-3: #48dcf6;
+
+  /* Font weights */
+  --weight: 600;
+
+  /* Font sizes (mobile) */
+  --font-size-regular: 12px;
+  --font-size-important-1: 25px;
+  --font-size-important-2: 20px;
+}
+
+/* =========================================================
+   GLOBAL / BASE STYLES
+   ========================================================= */
 body {
-  height: 100vh;
-  background: center / cover url(/assets/backgroundTexture.jpg);
-  background-size: 263px;
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--color-body);
+
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
-  padding: 26px;
-  font-size: 17px;
-  font-family: "PT Serif Caption", serif;
-  font-weight: 500;
+  justify-content: center;
+
+  height: 100vh;
+  gap: 25px;
+
+  animation: fadeIn 0.3s ease-in;
 }
 
 a {
-  color: black;
   text-decoration: none;
+  color: inherit;
 }
 
-header {
-  width: 40%;
+p::selection {
+  background-color: rgba(158, 158, 158, 0.5);
+}
+
+p:hover {
+  cursor: default;
+}
+
+/* =========================================================
+   LISTS & NAVIGATION
+   ========================================================= */
+ul {
+  list-style-type: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 15px;
 }
-nav {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.navDirection {
-  border: dashed 2px black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-inline: 46px;
-  background-color: rgba(253, 226, 255, 0.637);
-}
-.navDirection:nth-child(2) {
-  border-inline: none;
-}
-.navDirection:nth-child(4) {
-  border-left: none;
-}
-.navDirection:hover a {
-  text-decoration: underline;
+
+li {
+  width: fit-content;
+  padding: 8px 14px;
+  border: 2px solid transparent;
+  border-radius: 12px;
   transition-duration: 0.2s;
 }
 
-.box {
-  border-radius: 12px;
-  padding: 12px;
-  background-color: rgb(250, 230, 252);
-  border-style: solid;
-  border-width: 9px;
-  border-image:url(/assets/border.png) 9 fill round;
-  overflow: hidden;
-  display: flex;
-  gap: 15px;
-  align-items: center;
+li:hover {
+  border: 2px solid var(--color-border);
+  transform: translateX(10px);
 }
-
-.box img{
-  width: 25%;
-  border-radius: 8px;
+li:hover i.ri-arrow-right-line {
+  display: block;
 }
-
-.player {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 20px 40px;
-  text-align: center;
-  width: 400px;
+li {
+  position: relative;
+}
+i {
   position: absolute;
   z-index: 2;
-  bottom: 20px;
-  right: 20px;
+  left: -20px;
+  display: none;
 }
 
-.controls {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  justify-content: center;
-  align-items: center;
+li.currentPage:hover {
+  background-image: linear-gradient(
+    45deg,
+    var(--color-text-alternative-2),
+    var(--color-text-alternative-1)
+  );
 }
 
-.controls button {
-  background: none;
-  border: 1px solid;
-  border-radius: 999px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: transform 0.2s;
+/* =========================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================= */
+.important-2 {
+  font-size: var(--font-size-important-2);
+  font-weight: var(--weight);
+}
+.important-1 {
+  font-size: var(--font-size-important-1);
+  font-weight: var(--weight);
 }
 
-button:hover {
-  background: rgba(255, 255, 255, 0.514);
+li.important-2 {
+  font-weight: 500;
 }
 
-#volume {
-  width: 80px;
-  accent-color: pink;
+/* =========================================================
+   TEXT COLORS & HIGHLIGHTS
+   ========================================================= */
+.edenText {
+  color: var(--color-text-alternative-3);
 }
-.websiteInfo{
+
+.currentPage {
+  background-image: linear-gradient(
+    45deg,
+    var(--color-text-alternative-1),
+    var(--color-text-alternative-2)
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: var(--weight) !important;
+}
+
+/* Section contact */
+.contact {
+  width: 100%;
+}
+
+/* Titre */
+.contact .formTitle {
+  margin-bottom: 25px;
+}
+
+form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-items: start;
-  grid-area: one;
 }
-main{
-  width: 40%;
-  margin-top: 20px;
-  display: grid;
-  grid-template-areas:
-    "one one two two"
-    "one one two two"
-    "three three four four"
-    "three three four four";
+form div {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
   gap: 10px;
-    grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 100px);
 }
-.easteregg{
-  position: absolute;
-  z-index: 3;
-  top: 0px;
-  left: 0px;
 
-  width: 10px;
-  height: 10px;
+input,
+textarea,
+button {
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+}
+
+hr {
+  margin: 25px 0 15px;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* Email en bas */
+.contact-email {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* =========================================================
+   LAYOUT ELEMENTS
+   ========================================================= */
+main {
+  text-align: center;
+}
+@media screen and (min-width: 376px) {
+  body {
+    flex-direction: row;
+    gap: 120px;
+  }
+  ul {
+    width: fit-content;
+  }
+  p {
+    width: fit-content;
+  }
+
+  main {
+    width: 20%;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  .row input {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

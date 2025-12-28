@@ -10,86 +10,139 @@
   /* Colors */
   --color-body: #ecf3f9;
   --color-border: #cacaca;
-
   --color-text-main: #000000;
   --color-text-alternative-1: #d6b1ff;
   --color-text-alternative-2: #ff7e7e;
   --color-text-alternative-3: #48dcf6;
 
-  /* Font weights */
+  /* Typography */
   --weight: 600;
-
-  /* Font sizes (mobile) */
-  --font-size-regular: 12px;
-  --font-size-important-1: 25px;
-  --font-size-important-2: 20px;
+  --font-size-regular-mobile: 12px;
+  --font-size-1-mobile: 25px;
+  --font-size-2: 20px;
+  --font-size-3-mobile: 14px;
 }
 
 /* =========================================================
-   GLOBAL / BASE STYLES
+   GLOBAL STYLES
    ========================================================= */
 body {
   font-family: "Work Sans", sans-serif;
   background-color: var(--color-body);
-
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-
   height: 100vh;
   gap: 25px;
-
   animation: fadeIn 0.3s ease-in;
 }
 
+main {
+  text-align: center;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+.font-style-1 {
+  font-size: var(--font-size-1-mobile);
+  font-weight: var(--weight);
+}
+
+.font-style-2 {
+  font-size: var(--font-size-2);
+  font-weight: var(--weight);
+}
+.font-style-3 {
+  font-size: var(--font-size-3-mobile);
+  font-weight: var(--weight);
+}
+
+li.important-2 {
+  font-weight: 500;
+}
+
+/* =========================================================
+   LINKS & INTERACTIVE ELEMENTS
+   ========================================================= */
 a {
   text-decoration: none;
   color: inherit;
+}
+
+p {
+  cursor: default;
 }
 
 p::selection {
   background-color: rgba(158, 158, 158, 0.5);
 }
 
-p:hover {
-  cursor: default;
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+}
+
+button[type="submit"] {
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: ghostwhite;
+  border-color: var(--color-text-main);
 }
 
 /* =========================================================
-   LISTS & NAVIGATION
+   NAVIGATION & LISTS
    ========================================================= */
 ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-direction: row;
+  gap: 10px;
 }
 
 li {
+  position: relative;
   width: fit-content;
   padding: 8px 14px;
   border: 2px solid transparent;
   border-radius: 12px;
-  transition-duration: 0.2s;
+  transition: all 0.2s ease;
 }
 
 li:hover {
-  border: 2px solid var(--color-border);
+  border-color: var(--color-border);
   transform: translateX(10px);
 }
+
 li:hover i.ri-arrow-right-line {
   display: block;
 }
-li {
-  position: relative;
-}
-i {
+
+li i {
   position: absolute;
   z-index: 2;
   left: -20px;
   display: none;
+}
+
+/* Current page styles */
+.currentPage {
+  background-image: linear-gradient(
+    45deg,
+    var(--color-text-alternative-1),
+    var(--color-text-alternative-2)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: var(--weight) !important;
 }
 
 li.currentPage:hover {
@@ -101,45 +154,19 @@ li.currentPage:hover {
 }
 
 /* =========================================================
-   TYPOGRAPHY UTILITIES
-   ========================================================= */
-.important-2 {
-  font-size: var(--font-size-important-2);
-  font-weight: var(--weight);
-}
-.important-1 {
-  font-size: var(--font-size-important-1);
-  font-weight: var(--weight);
-}
-
-li.important-2 {
-  font-weight: 500;
-}
-
-/* =========================================================
-   TEXT COLORS & HIGHLIGHTS
+   TEXT COLORS
    ========================================================= */
 .edenText {
   color: var(--color-text-alternative-3);
 }
 
-.currentPage {
-  background-image: linear-gradient(
-    45deg,
-    var(--color-text-alternative-1),
-    var(--color-text-alternative-2)
-  );
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: var(--weight) !important;
-}
-
-/* Section contact */
+/* =========================================================
+   FORMS & CONTACT
+   ========================================================= */
 .contact {
   width: 100%;
 }
 
-/* Titre */
 .contact .formTitle {
   margin-bottom: 25px;
 }
@@ -149,6 +176,7 @@ form {
   flex-direction: column;
   gap: 12px;
 }
+
 form div {
   display: flex;
   flex-direction: column;
@@ -157,11 +185,16 @@ form div {
 }
 
 input,
-textarea,
-button {
+textarea {
   border: none;
   border-radius: 8px;
   background-color: white;
+  padding: 4px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
 }
 
 hr {
@@ -170,7 +203,6 @@ hr {
   border-top: 1px solid #ddd;
 }
 
-/* Email en bas */
 .contact-email {
   background-color: #ffffff;
   padding: 10px;
@@ -179,40 +211,49 @@ hr {
 }
 
 /* =========================================================
-   LAYOUT ELEMENTS
+   ANIMATIONS
    ========================================================= */
-main {
-  text-align: center;
-}
-@media screen and (min-width: 376px) {
-  body {
-    flex-direction: row;
-    gap: 120px;
-  }
-  ul {
-    width: fit-content;
-  }
-  p {
-    width: fit-content;
-  }
-
-  main {
-    width: 20%;
-  }
-  .row {
-    display: flex;
-    flex-direction: row;
-  }
-  .row input {
-    width: 100%;
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+@media screen and (min-width: 376px) {
+  body {
+    flex-direction: row;
+    gap: 120px;
+  }
+
+  main {
+    width: 20%;
+  }
+
+  ul,
+  p {
+    width: fit-content;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .row input {
+    width: 100%;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .font-style-3 {
+    font-size: var(--font-size-2);
   }
 }

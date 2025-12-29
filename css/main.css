@@ -14,125 +14,209 @@
   --color-text-alternative-1: #d6b1ff;
   --color-text-alternative-2: #ff7e7e;
   --color-text-alternative-3: #48dcf6;
+  --color-white: #ffffff;
+  --color-ghostwhite: ghostwhite;
+  --color-selection: rgba(158, 158, 158, 0.5);
+  --color-hr: #ddd;
 
   /* Typography */
-  --weight: 600;
-  --font-size-regular-mobile: 12px;
-  --font-size-1-mobile: 25px;
-  --font-size-2: 20px;
-  --font-size-3-mobile: 14px;
+  --font-family-primary: "Work Sans", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 25px;
+
+  /* Spacing */
+  --space-xs: 2px;
+  --space-sm: 4px;
+  --space-md: 8px;
+  --space-lg: 12px;
+  --space-xl: 14px;
+  --space-2xl: 25px;
+  --space-3xl: 120px;
+
+  /* Borders & Radius */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-slow: 0.3s ease-in;
+
+  /* Layout */
+  --main-width-desktop: 20%;
+  --textarea-min-height: 80px;
 }
 
 /* =========================================================
-   GLOBAL STYLES
+   RESET & BASE STYLES
    ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-family-primary);
   background-color: var(--color-body);
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  gap: 25px;
-  animation: fadeIn 0.3s ease-in;
+  gap: var(--space-2xl);
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  animation: fadeIn var(--transition-slow);
 }
 
-main {
-  text-align: center;
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
-.font-style-1 {
-  font-size: var(--font-size-1-mobile);
-  font-weight: var(--weight);
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
-.font-style-2 {
-  font-size: var(--font-size-2);
-  font-weight: var(--weight);
-}
-.font-style-3 {
-  font-size: var(--font-size-3-mobile);
-  font-weight: var(--weight);
-}
-
-li.important-2 {
-  font-weight: 500;
-}
-
-/* =========================================================
-   LINKS & INTERACTIVE ELEMENTS
-   ========================================================= */
-a {
-  text-decoration: none;
-  color: inherit;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
 p {
+  text-wrap: pretty;
   cursor: default;
 }
 
-p::selection {
-  background-color: rgba(158, 158, 158, 0.5);
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  background-color: white;
-}
-
-button[type="submit"] {
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: ghostwhite;
-  border-color: var(--color-text-main);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
 
 /* =========================================================
-   NAVIGATION & LISTS
+   TYPOGRAPHY UTILITIES
    ========================================================= */
-ul {
+.font-style-1 {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-style-2 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-style-3 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.text-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+/* =========================================================
+   LAYOUT & COMPONENTS
+   ========================================================= */
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+a main {
+  text-align: center;
+}
+
+/* Navigation */
+nav ul {
   list-style-type: none;
   padding: 0;
   display: flex;
   flex-direction: row;
-  gap: 2px;
+  gap: var(--space-xs);
 }
 
-li {
+nav li {
   position: relative;
   width: fit-content;
-  padding: 8px 14px;
+  padding: var(--space-md) var(--space-xl);
   border: 2px solid transparent;
-  border-radius: 12px;
-  transition: all 0.2s ease;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
 }
 
-li:hover {
+nav li:hover {
   border-color: var(--color-border);
-  transform: translateX(10px);
+  transform: translateY(-10px);
 }
 
-li:hover i.ri-arrow-right-line {
-  display: block;
-}
-
-li i {
+nav li i {
   position: absolute;
   z-index: 2;
   left: -20px;
   display: none;
 }
 
-/* Current page styles */
+/* Links & Buttons */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p::selection {
+  background-color: var(--color-selection);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+}
+
+button[type="submit"] {
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-ghostwhite);
+  border-color: var(--color-text-main);
+}
+
+/* Text Colors */
+.edenText {
+  color: var(--color-text-alternative-3);
+}
+
+/* Current Page Indicator */
 .currentPage {
   background-image: linear-gradient(
     45deg,
@@ -142,10 +226,10 @@ li i {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: var(--weight) !important;
+  font-weight: var(--font-weight-semibold) !important;
 }
 
-li.currentPage:hover {
+.currentPage:hover {
   background-image: linear-gradient(
     45deg,
     var(--color-text-alternative-2),
@@ -153,28 +237,11 @@ li.currentPage:hover {
   );
 }
 
-/* =========================================================
-   TEXT COLORS
-   ========================================================= */
-.edenText {
-  color: var(--color-text-alternative-3);
-}
-
-/* =========================================================
-   FORMS & CONTACT
-   ========================================================= */
-.contact {
-  width: 100%;
-}
-
-.contact .formTitle {
-  margin-bottom: 25px;
-}
-
+/* Forms */
 form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-lg);
 }
 
 form div {
@@ -187,27 +254,53 @@ form div {
 input,
 textarea {
   border: none;
-  border-radius: 8px;
-  background-color: white;
-  padding: 4px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  padding: var(--space-sm);
 }
 
 textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: var(--textarea-min-height);
 }
 
-hr {
-  margin: 25px 0 15px;
-  border: none;
-  border-top: 1px solid #ddd;
+/* Contact Section */
+.contact {
+  width: 100%;
+}
+
+.contact .formTitle {
+  margin-bottom: var(--space-2xl);
 }
 
 .contact-email {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   padding: 10px;
-  border-radius: 10px;
-  font-size: 14px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+}
+
+hr {
+  margin: var(--space-2xl) 0 15px;
+  border: none;
+  border-top: 1px solid var(--color-hr);
+}
+
+/* About Section */
+.aboutSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.aboutSection p {
+  width: 80%;
+}
+
+.aboutSection p:nth-child(2) {
+  border-block: 1px solid;
+  padding-block: var(--space-lg);
 }
 
 /* =========================================================
@@ -228,11 +321,11 @@ hr {
 @media screen and (min-width: 376px) {
   body {
     flex-direction: row;
-    gap: 120px;
+    gap: var(--space-3xl);
   }
 
   main {
-    width: 20%;
+    width: var(--main-width-desktop);
   }
 
   ul,
@@ -243,17 +336,34 @@ hr {
   .row {
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: var(--space-lg);
   }
 
   .row input {
     width: 100%;
   }
+
   nav ul {
     display: flex;
     flex-direction: column;
   }
+
   .font-style-3 {
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-lg);
+  }
+
+  .font-style-1 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  /* Desktop-specific hover effects */
+  nav li:hover i.ri-arrow-right-line {
+    display: block;
+  }
+
+  nav li:hover {
+    border-color: var(--color-border);
+    transform: translateX(10px);
   }
 }

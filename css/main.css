@@ -239,7 +239,7 @@ hr {
 /* =========================================================
    RESPONSIVE DESIGN
    ========================================================= */
-@media screen and (min-width: 376px) {
+@media screen and (min-width: 431px) {
   body {
     flex-direction: row;
     gap: 120px;

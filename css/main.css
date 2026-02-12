@@ -23,6 +23,7 @@
   /* Tailles */
   --font-size-nav: 25px;
   --font-size-title: 30px;
+  --font-size-project-title: 45px;
   --font-size-name: 70px;
 
   /* Poids */
@@ -41,13 +42,14 @@
 }
 
 body {
-  padding: var(--spacing-lg) 24px;
+  padding: var(--spacing-lg) 25px;
+  padding-bottom: var(--spacing-sm);
   height: 100vh;
   font-family: var(--font-primary);
   background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
 }
 
 a {
@@ -58,10 +60,6 @@ a {
 
 p {
   font-weight: var(--font-semibold);
-}
-
-header {
-  height: 40%;
 }
 
 header div:first-of-type {
@@ -100,7 +98,6 @@ header ul {
 }
 
 main {
-  height: 50%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -110,7 +107,6 @@ main {
 .titles {
   font-size: var(--font-size-title);
   font-weight: var(--font-semibold);
-  margin-bottom: 12px;
 }
 
 .homepagetitle {

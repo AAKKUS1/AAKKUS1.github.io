@@ -1,0 +1,34 @@
+main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 3;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  gap: 0px;
+  flex-direction: column-reverse;
+}
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid white;
+}
+
+.projectName {
+  font-size: var(--font-size-project-title);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-light);
+  font-family: var(--font-secondary);
+}
+
+section:last-of-type {
+  border: none;
+  color: var(--color-text-light);
+  height: 50%;
+
+  text-align: center;
+  padding: 10px;
+}

@@ -10,22 +10,39 @@
     <title>AAKKUS - Portfolio</title>
   </head>
   <body>
+    <div class="curtain top-curtain"></div>
+    <div class="curtain bottom-curtain"></div>
     <header>
       <div>
         <h1 class="nameTitle">Adem AKKUS</h1>
         <ul>
-          <li><a class="navRegular navSelected" href="#">Accueil</a></li>
+          <li><a class="navRegular navSelected transition-link" href="#">Accueil</a></li>
           <li>
-            <a class="navRegular" href="/pages/about.html">Me découvrir</a>
+            <a class="navRegular transition-link" href="/pages/about.html"
+              >Me découvrir</a
+            >
           </li>
-          <li><a class="navRegular" href="#">Voir mes projets</a></li>
-          <li><a class="navRegular" href="#">Me contacter</a></li>
+          <li>
+            <a class="navRegular transition-link" href="/pages/projects.html"
+              >Voir mes projets</a
+            >
+          </li>
+          <li>
+            <a class="navRegular transition-link" href="/pages/contact.html"
+              >Me contacter</a
+            >
+          </li>
         </ul>
+      </div>
+      <div>
+        <p id="heure" class="persInfo">Heure</p>
+        <p id="loc" class="persInfo">Localisation</p>
       </div>
     </header>
 
     <p class="titles homepagetitle">
       Un jeune développeur déterminé et avide de découvertes
     </p>
+    <script src="/script.js"></script>
   </body>
 </html>

@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/main.css" />
@@ -11,18 +15,39 @@
     <title>AAKKUS - Portfolio</title>
   </head>
   <body>
+       <div class="curtain top-curtain"></div>
+    <div class="curtain bottom-curtain"></div>
     <header>
       <div>
         <h1 class="nameTitle">Adem AKKUS</h1>
         <ul>
-          <li><a class="navRegular" href="/index.html">Accueil</a></li>
-          <li><a class="navRegular navSelected" href="#">Me découvrir</a></li>
-          <li><a class="navRegular" href="#">Voir mes projets</a></li>
-          <li><a class="navRegular" href="#">Me contacter</a></li>
+          <li><a class="navRegular  transition-link" href="#">Accueil</a></li>
+          <li>
+            <a class="navRegular transition-link" href="/pages/about.html"
+              >Me découvrir</a
+            >
+          </li>
+          <li>
+            <a class="navRegular navSelected transition-link" href="/pages/projects.html"
+              >Voir mes projets</a
+            >
+          </li>
+          <li>
+            <a class="navRegular transition-link" href="/pages/contact.html"
+              >Me contacter</a
+            >
+          </li>
         </ul>
+      </div>
+      <div>
+        <p id="heure" class="persInfo">Heure</p>
+        <p id="loc" class="persInfo">Localisation</p>
       </div>
     </header>
     <main>
+      <a href="/pages/about.html">
+        <i class="ri-close-line"></i>
+      </a>
       <section>
         <a class="projectName">Project 4</a>
       </section>
@@ -42,5 +67,6 @@
         </p>
       </section>
     </main>
+    <script src="/script.js"></script>
   </body>
 </html>

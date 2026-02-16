@@ -10,31 +10,54 @@
     <title>AAKKUS - Portfolio</title>
   </head>
   <body>
+     <div class="curtain top-curtain"></div>
+    <div class="curtain bottom-curtain"></div>
     <header>
       <div>
         <h1 class="nameTitle">Adem AKKUS</h1>
         <ul>
-          <li><a class="navRegular" href="/index.html">Accueil</a></li>
-          <li><a class="navRegular navSelected" href="#">Me découvrir</a></li>
-          <li><a class="navRegular" href="#">Voir mes projets</a></li>
-          <li><a class="navRegular" href="#">Me contacter</a></li>
+          <li><a class="navRegular  transition-link" href="/index.html">Accueil</a></li>
+          <li>
+            <a class="navRegular navSelected transition-link" href="/pages/about.html"
+              >Me découvrir</a
+            >
+          </li>
+          <li>
+            <a class="navRegular transition-link" href="/pages/projects.html"
+              >Voir mes projets</a
+            >
+          </li>
+          <li>
+            <a class="navRegular transition-link" href="/pages/contact.html"
+              >Me contacter</a
+            >
+          </li>
         </ul>
+      </div>
+      <div>
+        <p id="heure" class="persInfo">Heure</p>
+        <p id="loc" class="persInfo">Localisation</p>
       </div>
     </header>
     <main>
       <p class="titles">Développeur en cours de développement.</p>
-      <p class="regular">
-        J’ai actuellement 16ans et j’étudie le métier de dev-web à
-        <a class="linkedText" href="https://www.edenschool.fr/">EdenSchool</a>,
-        je me spécialise plutôt dans le front-end pour livrer des visuels
-        attractifs et qui transpose une intention/une idée en résultat concret.
-      </p>
-
-      <p class="regular">
-        Je suis actuellement dans la recherche d’une alternance pour pouvoir
-        apprendre, prendre de l’experience et nouer des relations avec des gens
-        de confiance avec qui une collaboration sera bénéfique.
-      </p>
+      <div class="textOrganizer">
+        <p class="regular">
+          J’ai actuellement 16ans et j’étudie le métier de dev-web à
+          <a class="linkedText" href="https://www.edenschool.fr/">EdenSchool</a
+          >, je me spécialise plutôt dans le front-end pour livrer des visuels
+          attractifs et qui transpose une intention/une idée en résultat
+          concret.
+        </p>
+      </div>
+      <div class="textOrganizer">
+        <p class="regular">
+          Je suis actuellement dans la recherche d’une alternance pour pouvoir
+          apprendre, prendre de l’experience et nouer des relations avec des
+          gens de confiance avec qui une collaboration sera bénéfique.
+        </p>
+      </div>
     </main>
+    <script src="/script.js"></script>
   </body>
 </html>

@@ -50,6 +50,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 a {
@@ -66,6 +68,7 @@ header div:first-of-type {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  width: 80%;
 }
 
 .nameTitle {
@@ -76,7 +79,10 @@ header div:first-of-type {
   font-size: var(--font-size-name);
   line-height: var(--line-height-name);
 }
-
+header {
+  display: flex;
+  justify-content: space-between;
+}
 header ul {
   list-style-type: none;
   padding: 0;
@@ -126,4 +132,68 @@ main .regular {
 
 .linkedText {
   color: #48dcf6;
+}
+.persInfo {
+  display: none;
+}
+
+.curtain {
+  position: fixed;
+  width: 100%;
+  height: 51%; /* Légèrement plus que 50% pour un chevauchement visuel */
+  background-color: rgb(255, 255, 255);
+  z-index: 1000;
+  transition: transform 0.7s ease-in-out;
+  left: 0px;
+}
+
+.top-curtain {
+  top: 0;
+  transform: translateY(0);
+}
+
+.bottom-curtain {
+  bottom: 0;
+  transform: translateY(0);
+}
+
+.curtain.open {
+  transform: translateY(-101%) !important; /* Pour le rideau du haut */
+}
+
+.bottom-curtain.open {
+  transform: translateY(101%) !important; /* Pour le rideau du bas */
+}
+
+@media screen and (min-width: 391px) {
+  body {
+    padding: var(--spacing-lg);
+  }
+  h1 {
+    width: 20%;
+  }
+  .persInfo {
+    color: #777777;
+    font-weight: var(--font-medium);
+    font-size: var(--font-size-title);
+    display: block;
+  }
+  .titles {
+    font-size: 60px;
+    width: 60%;
+  }
+  .homepagetitle {
+    width: 60%;
+  }
+  main {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .textOrganizer {
+    width: 60%;
+  }
+  .regular {
+    font-size: 22px;
+  }
 }

@@ -51,7 +51,6 @@ body {
   flex-direction: column;
   gap: var(--spacing-md);
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 a {
@@ -195,5 +194,8 @@ main .regular {
   }
   .regular {
     font-size: 22px;
+  }
+  body {
+    overflow-y: hidden;
   }
 }

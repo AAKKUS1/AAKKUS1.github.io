@@ -59,3 +59,16 @@
   color: #666;
   font-size: 14px;
 }
+
+@media screen and (min-width: 391px) {
+  .contact-form {
+    max-width: none;
+    margin: 0px;
+
+    width: 25%;
+    height: 80%;
+    position: absolute;
+    top: -100px;
+  }
+  
+}
